@@ -1,4 +1,5 @@
 import tkinter as tk
+from hypertension import HypertensionCalculator
 
 # Function to add a new entry box
 #def add_entry():
@@ -8,10 +9,13 @@ import tkinter as tk
 
 #Gets the Entry value from all the entry boxes so they can be sent into the calculation
 def get_Value():
-    age = ageEntry.get()
-    cholesterol = cholestralEntry.get()
-    bmi = BMIEntry.get()
-    print("Age: ", age, " Cholestrol: ", cholesterol, " BMI: ", bmi)
+    age = float(ageEntry.get())
+    cholesterol = float(cholestralEntry.get())
+    bmi = float(BMIEntry.get())
+    stats = HypertensionCalculator(age, cholesterol, bmi)
+    RiskofHyTn = stats.calculate_hypertension()
+    print("Age: ", age, " Cholestrol: ", cholesterol, " BMI: ", bmi, "Result: ", RiskofHyTn )
+
 
 #def get_Value_Cho():
 
