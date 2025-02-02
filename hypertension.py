@@ -2,25 +2,11 @@ import numpy as np
 
 class HypertensionCalculator:
     def __init__(self, age, cholesterol, bmi):
-        #"""Initialize the prediction system."""
-        #self.entries = {}
-        #self.labels = ["Age", "Cholesterol Level", "BMI"]
         self.age = age
         self.cholesterol = cholesterol
         self.bmi = bmi
-    #def add_entry(self, label, value):
-    #    """Add an entry to the system."""
-    #    if label in self.labels:
-    #        self.entries[label] = value
-
     def calculate_hypertension(self):
-        #"""Calculate the probability of hypertension using a logistic regression formula."""
         try:
-            # Collect inputs
-            #age = float(self.entries["Age"])
-            #cholesterol = float(self.entries["Cholesterol Level"])
-            #bmi = float(self.entries["BMI"])
-
             # Logistic regression coefficients (Example values, can be trained)
             beta_0 = -2.5  # Intercept
             beta_1 = 0.02  # Age coefficient
@@ -46,13 +32,3 @@ class HypertensionCalculator:
 
         except ValueError:
             return "Please enter valid numerical values."
-
-# Example usage
-#if __name__ == "__main__":
-#    calculator = HypertensionCalculator()
-#    calculator.add_entry("Age", 45)
-#    calculator.add_entry("Cholesterol Level", 200)
-#    calculator.add_entry("BMI", 25)
-#
-#    result = calculator.calculate_hypertension()
-#    print(result)
