@@ -15,6 +15,8 @@ def get_Value():
     stats = HypertensionCalculator(age, cholesterol, bmi)
     RiskofHyTn = stats.calculate_hypertension()
     print("Age: ", age, " Cholestrol: ", cholesterol, " BMI: ", bmi, "Result: ", RiskofHyTn )
+    results = tk.Label(root, text = RiskofHyTn, font = ("Arial", 18))
+    results.pack(pady = 20)
 
 
 #def get_Value_Cho():
@@ -74,6 +76,9 @@ age_label.pack(side=tk.LEFT, padx=10)
 ageEntry = tk.Entry(age_frame, font=("Arial", 14))
 ageEntry.pack(fill=tk.X, padx=10)
 entry_boxes.append(ageEntry)
+
+#Results
+
 
 # Create a plus sign button to add more entry boxes
 #plus_button = tk.Button(root, text="+", font=("Arial", 20), command=add_entry)
