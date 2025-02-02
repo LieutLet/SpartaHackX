@@ -7,14 +7,8 @@ def get_Value():
         cholesterol = float(cholestralEntry.get())
         bmi = float(BMIEntry.get())
         
-        # Debug prints to check input values
-        print(f"Input Age: {age}, Input Cholesterol: {cholesterol}, Input BMI: {bmi}")
-        
         stats = HypertensionCalculator(age, cholesterol, bmi)
         RiskofHyTn = stats.calculate_hypertension()
-        
-        # Debug print to check the result
-        print(f"Result: {RiskofHyTn}")
         
         results = tk.Label(root, text=RiskofHyTn, font=("Arial", 18))
         results.pack(pady=20)
