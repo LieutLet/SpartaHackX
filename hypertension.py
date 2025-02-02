@@ -8,6 +8,8 @@ class HypertensionCalculator:
         self.age = age
         self.cholesterol = cholesterol
         self.bmi = bmi
+
+        print(self.age, self.cholesterol, self.bmi)
     #def add_entry(self, label, value):
     #    """Add an entry to the system."""
     #    if label in self.labels:

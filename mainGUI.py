@@ -1,82 +1,16 @@
 import tkinter as tk
 from hypertension import HypertensionCalculator
 
-# Function to add a new entry box
-#def add_entry():
-#    new_entry = tk.Entry(table_frame, font=("Arial", 14))
-#    new_entry.pack(fill=tk.X, pady=5, padx=10)
-#    entry_boxes.append(new_entry)
-
-age = "0"
-cholesterol ="0"
-bmi ="0"
-RiskofHyTn = "No Input"
-stats = stats = HypertensionCalculator(float(age), float(cholesterol), float(bmi))
-
-#Gets the Entry value from all the entry boxes so they can be sent into the calculation
 def get_Value():
     age = float(ageEntry.get())
     cholesterol = float(cholestralEntry.get())
     bmi = float(BMIEntry.get())
+    stats = HypertensionCalculator(age, cholesterol, bmi)
     RiskofHyTn = stats.calculate_hypertension()
+    print("Age: ", age, " Cholestrol: ", cholesterol, " BMI: ", bmi, "Result: ", RiskofHyTn )
     results = tk.Label(root, text = RiskofHyTn, font = ("Arial", 18))
     results.pack(pady = 20)
-    #print("Age: ", age, " Cholestrol: ", cholesterol, " BMI: ", bmi, "Result: ", RiskofHyTn )
 
-def show_hypertension_facts():
-
-    facts = ("HYPERTENSION ANSWER: According to the CDC, Hypertension is persistently high blood pressure at or above 130/80 mm Hg.")
-    fact_label = tk.Label(root, text=facts, wraplength=350, justify="left")
-    fact_label.pack(pady=10)
-
-def show_calculator_facts():
-    facts = (
-        "CALCULATOR ANSWER: Logistic regression was the statistical method used for predicting one's Hypertension risk "
-        "The three independent variables used to predict one's risk were age, BMI, and cholesterol level. "
-        "The outcome is measured with a variable representing two possible outcomes. "
-        "The logistic regression formula is:\n\n"
-        "P(Y=1) = 1 / (1 + e^-(-2.5 + 0.02*age + 0.03*cholesterol + 0.05*BMI))\n\n"
-        "where P(Y=1) is the predicted Hypertension risk, and e is the base of the natural logarithm. "
-    )
-    fact_label = tk.Label(root, text=facts, wraplength=350, justify="left")
-    fact_label.pack(pady=10)
-
-""" def popup():
-    popup = tk.Tk()
-    popup.title("Hypertension and Calculator Info")
-    popup.geometry("400x400")
-
-    def show_hypertension_facts():
-
-        facts = ("HYPERTENSION ANSWER: According to the CDC, Hypertension is persistently high blood pressure at or above 130/80 mm Hg.")
-        fact_label = tk.Label(popup, text=facts, wraplength=350, justify="left")
-        fact_label.pack(pady=10)
-
-    def show_calculator_facts():
-        facts = (
-            "CALCULATOR ANSWER: Logistic regression was the statistical method used for predicting one's Hypertension risk "
-            "The three independent variables used to predict one's risk were age, BMI, and cholesterol level. "
-            "The outcome is measured with a variable representing two possible outcomes. "
-            "The logistic regression formula is:\n\n"
-            "P(Y=1) = 1 / (1 + e^-(-2.5 + 0.02*age + 0.03*cholesterol + 0.05*BMI))\n\n"
-            "where P(Y=1) is the predicted Hypertension risk, and e is the base of the natural logarithm. "
-        )
-
-        fact_label = tk.Label(popup, text=facts, wraplength=350, justify="left")
-        fact_label.pack(pady=10)
-
-    hypertension_button = tk.Button(popup, text="What is Hypertension?", command=show_hypertension_facts)
-    hypertension_button.pack(pady=20)
-
-    calculator_button = tk.Button(popup, text="How does the Hypertension Calculator work?", command=show_calculator_facts)
-    calculator_button.pack(pady=20)
-    #popup.mainloop() """
-    
-
-
-#def get_Value_Cho():
-
-#def get_Value_BMI():
 
 # Create the main window
 root = tk.Tk()
@@ -87,8 +21,8 @@ menu_frame = tk.Frame(root, bg="grey", height=50)
 menu_frame.pack(fill=tk.X)
 
 # Create a hamburger menu icon
-#hamburger_icon = tk.Button(menu_frame, text="☰", font=("Arial", 18), bg="grey", fg="white")
-#hamburger_icon.pack(side=tk.LEFT, padx=10, pady=5)
+hamburger_icon = tk.Label(menu_frame, text="☰", font=("Arial", 18), bg="grey", fg="white")
+hamburger_icon.pack(side=tk.LEFT, padx=10, pady=5)
 
 # Create a label for the title
 title_label = tk.Label(root, text="Risk of Hypertension Calculator", font=("Arial", 16))
@@ -132,21 +66,4 @@ ageEntry = tk.Entry(age_frame, font=("Arial", 14))
 ageEntry.pack(fill=tk.X, padx=10)
 entry_boxes.append(ageEntry)
 
-#Results
-
-
-
-
-
-hypertension_button = tk.Button(root, text="What is Hypertension?", command=show_hypertension_facts)
-hypertension_button.pack(pady=20)
-
-calculator_button = tk.Button(root, text="How does the Hypertension Calculator work?", command=show_calculator_facts)
-calculator_button.pack(pady=20)
-
-# Create a plus sign button to add more entry boxes
-#plus_button = tk.Button(root, text="+", font=("Arial", 20), command=add_entry)
-#plus_button.pack(pady=10)
-
-# Run the application
 root.mainloop()
