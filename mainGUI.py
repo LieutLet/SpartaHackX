@@ -7,16 +7,22 @@ from hypertension import HypertensionCalculator
 #    new_entry.pack(fill=tk.X, pady=5, padx=10)
 #    entry_boxes.append(new_entry)
 
+age = "0"
+cholesterol ="0"
+bmi ="0"
+RiskofHyTn = "No Input"
+stats = stats = HypertensionCalculator(float(age), float(cholesterol), float(bmi))
+
 #Gets the Entry value from all the entry boxes so they can be sent into the calculation
 def get_Value():
     age = float(ageEntry.get())
     cholesterol = float(cholestralEntry.get())
     bmi = float(BMIEntry.get())
-    stats = HypertensionCalculator(age, cholesterol, bmi)
     RiskofHyTn = stats.calculate_hypertension()
-    print("Age: ", age, " Cholestrol: ", cholesterol, " BMI: ", bmi, "Result: ", RiskofHyTn )
     results = tk.Label(root, text = RiskofHyTn, font = ("Arial", 18))
     results.pack(pady = 20)
+    #print("Age: ", age, " Cholestrol: ", cholesterol, " BMI: ", bmi, "Result: ", RiskofHyTn )
+    
 
 
 #def get_Value_Cho():
